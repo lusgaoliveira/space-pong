@@ -4,46 +4,48 @@
 [ext_resource type="PackedScene" uid="uid://d18b37vk8m2sl" path="res://scenes/player.tscn" id="2_e2o6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
-size = Vector2(690.5, 53)
+size = Vector2(629.25, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
-size = Vector2(75, 960.5)
+size = Vector2(75, 793.313)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
-size = Vector2(690.75, 60.5)
+size = Vector2(631.375, 60.5)
 
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-3, 9)
+scale = Vector2(0.892593, 0.811458)
 texture = ExtResource("1_80nbo")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(270, 887)
+position = Vector2(228, 652)
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(0, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
-position = Vector2(271, 24)
+position = Vector2(240.375, 24)
 shape = SubResource("RectangleShape2D_e2o6t")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-34.5, 475.5)
+position = Vector2(-40, 397.344)
 shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(577, 479.25)
+position = Vector2(518, 394)
 shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="Hole" type="Area2D" parent="."]
 position = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole"]
-position = Vector2(272, 1002)
+position = Vector2(246, 834)
 shape = SubResource("RectangleShape2D_fc0e3")
 debug_color = Color(0.88788, 0.282789, 0.437694, 0.42)

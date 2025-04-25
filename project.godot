@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=480
-window/size/viewport_height=840
+window/size/viewport_height=800
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/handheld/orientation=1
 
 [dotnet]
@@ -27,5 +29,4 @@ project/assembly_name="Space Pong"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
