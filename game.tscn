@@ -47,21 +47,28 @@ vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
 position = Vector2(240, 652)
+collision_mask = 6
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 position = Vector2(0, -48)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
 position = Vector2(239.5, 36)
 shape = SubResource("RectangleShape2D_e2o6t")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
 position = Vector2(-40, 400.00006)
 shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(518, 399.0001)
@@ -69,6 +76,8 @@ shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="Hole" type="Area2D" parent="."]
 position = Vector2(0, -12)
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole"]
 position = Vector2(239.65625, 829)
@@ -78,6 +87,8 @@ debug_color = Color(0.88788, 0.282789, 0.437694, 0.42)
 [node name="Ball" parent="." instance=ExtResource("3_feb5d")]
 z_index = 1
 position = Vector2(240, 618)
+collision_layer = 2
+collision_mask = 29
 
 [node name="Tutorial" type="Label" parent="."]
 offset_right = 484.0
@@ -87,4 +98,23 @@ label_settings = SubResource("LabelSettings_ryrav")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Pos_01" type="Marker2D" parent="Positions"]
+position = Vector2(-175, 181)
+
+[node name="Pos_02" type="Marker2D" parent="Positions"]
+position = Vector2(-175, 338)
+
+[node name="Pos_03" type="Marker2D" parent="Positions"]
+position = Vector2(643, 75)
+
+[node name="Pos_04" type="Marker2D" parent="Positions"]
+position = Vector2(643, 241)
+
+[node name="TimerSpawner" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
+[connection signal="timeout" from="TimerSpawner" to="." method="_on_timer_spawner_timeout"]
